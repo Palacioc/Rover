@@ -20,10 +20,10 @@ grid[2][6]=1;
 grid[3][9]=1;
 grid[4][0]=1;
 
-//message
-var message ="fffffff";
+//Message
+var message ="lfffffffff";
 //mensaje en el que ambos rovers encuentran obstaculos: lfffffff
-//mensaje en el que rover1 choca con rover2
+//mensaje en el que rover1 choca con rover2 fffffff
 
 //Funciones de movimiento. Reciben el objeto con la pos. actual y escriben en el objeto la nueva posicion.
 function goForward(rover) {
@@ -158,14 +158,14 @@ for(var i=0; i<message.length; i++){
       console.log("   Rover 1 found an obstacle. Last valid position was " + rover1.position);
       rover1Freeze = 1;
     }else if(grid[nextRover1.position[0]][nextRover1.position[1]]==="rover2"){
-      console.log("   Rover 1 bumped into Rover 2. End of movements");
+      console.log("   Rover 1 bumped into Rover 2. End of movements. Last valid position was " + rover1.position);
       break;
     }else{
       grid[rover1.position[0]][rover1.position[1]]="0";
+      grid[rover1.position[0]][rover1.position[1]]="rover1";
       rover1 = nextRover1;
       console.log("   Rover 1 moved successfully!");
     }
-    grid[rover1.position[0]][rover1.position[1]]="rover1";
   }
 
   //Rover 2 moves
@@ -176,14 +176,14 @@ for(var i=0; i<message.length; i++){
       console.log("   Rover 2 found an obstacle. Last valid position was " + rover2.position);
       rover2Freeze = 1;
     }else if(grid[nextRover2.position[0]][nextRover2.position[1]]==="rover1"){
-      console.log("   Rover 1 bumped into Rover 2. End of movements");
+      console.log("   Rover 1 bumped into Rover 2. End of movements. Last valid position was " + rover1.position);
       break;
     }else{
       grid[rover2.position[0]][rover2.position[1]]="0";
+      grid[rover2.position[0]][rover2.position[1]]="rover2";
       rover2 = nextRover2;
       console.log("   Rover 2 moved successfully!");
     }
-    grid[rover2.position[0]][rover2.position[1]]="rover2";
   }
   if(rover1Freeze===1 && rover2Freeze===1){
     console.log("Both rovers have encountered obstacles, end of movements");
