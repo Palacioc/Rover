@@ -119,7 +119,7 @@ function turnRight(rover) {
 }
 
 function nextPosition(command, rover){
-  var nextRover = rover;
+  var nextRover = JSON.parse(JSON.stringify(rover));
   switch (command) {
     case 'f':
       goForward(nextRover);
